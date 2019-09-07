@@ -1,6 +1,6 @@
 # React Forms
 
-Based on [oliverjam](https://github.com/oliverjam) [original intro](https://github.com/oliverjam/learn-react/tree/master/05-transform-the-form).
+Based on [oliverjam](https://github.com/oliverjam) [original intro](https://github.com/oliverjam/learn-react/tree/master/05-transform-the-form), to use classes instead of hooks.
 
 ---
 
