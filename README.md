@@ -117,7 +117,7 @@ class Form extends React.Component {
     checked: false,
   };
   setChecked = event => {
-    this.setState({ checked: event.target.value });
+    this.setState({ checked: event.target.checked });
   };
   render() {
     const { checked } = this.state;
