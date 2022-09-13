@@ -5,15 +5,14 @@
 
   <body>
     <!-- These scripts will make React and ReactDOM globally available. -->
-    <script src="./../assets/react@16.8.6/umd/react.development.js"></script>
-    <script src="./../assets/react-dom@16.8.6/umd/react-dom.development.js"></script>
-    <!-- This will let us write JSX and ES6 in a script tag with a special type of "text/babel" -->
-    <script src="./../assets/babel-standalone@6.26.0/babel.js"></script>
 
     <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
-      const root = document.getElementById('root');
+      const container = document.getElementById('root');
 
       const TempConverter = () => {
         return (
@@ -25,8 +24,8 @@
       };
 
       const App = () => <TempConverter />;
-
-      ReactDOM.render(<App />, root);
+      const root = ReactDOM.createRoot(container); // createRoot(container!) if you use TypeScript
+      root.render(<App />);
     </script>
   </body>
 </html>
