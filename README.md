@@ -4,7 +4,7 @@ Form elements are sort of unique in HTML because they are stateful. A user can c
 
 Since React has its own way of keeping track of UI state it's often annoying to keep input state in the DOM and the rest of your state in React/JS. It's common to move input state entirely into React; this is called _controlling_ a component.
 
-## Controlled components
+## Controlled Components
 
 A controlled component is one whose internal state is managed in another place (usually a parent component).
 
