@@ -7,18 +7,69 @@
     <!-- These scripts will make React and ReactDOM globally available. -->
 
     <div id="root"></div>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
       const container = document.getElementById('root');
 
       const TempConverter = () => {
+        const [temperature, setTemperature] = React.useState('');
+        const [type, setType] = React.useState('celsius');
+
+        const celsiusToFahrenheit = (c) => Math.round((c * 9) / 5 + 32);
+        const fahrenheitToCelsius = (f) => Math.round(((f - 32) * 5) / 9);
+
+        const converter = () => {
+          if (temperature === '') return;
+          if (type === 'celsius') return celsiusToFahrenheit(temperature) + 'F';
+          if (type === 'fahrenheit')
+            return fahrenheitToCelsius(temperature) + 'C';
+        };
+
         return (
           <form>
             <h1>Temperature converter</h1>
-            <output>converted output goes here</output>
+            <fieldset>
+              <legend>Scale</legend>
+              <label>
+                <input
+                  type="radio"
+                  name="scale"
+                  value="celsius"
+                  checked={type === 'celsius'}
+                  onChange={(e) => setType(e.target.value)}
+                ></input>
+                Celsius
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="scale"
+                  value="fahrenheit"
+                  checked={type === 'fahrenheit'}
+                  onChange={(e) => setType(e.target.value)}
+                ></input>
+                Fahrenheit
+              </label>
+            </fieldset>
+            <label>
+              Temperature:
+              <input
+                type="number"
+                value={temperature}
+                onChange={(e) => setTemperature(e.target.value)}
+              ></input>
+            </label>
+
+            <output>{converter()}</output>
           </form>
         );
       };
